@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Annemaries Blog</title>
+        <title>Django Girls blog</title>
     </head>
     <body>
-        <h1>Mein Erster Blog!</h1>    
-        <article>
-        <h2>1.Eintrag:</h2>
-        <time>veröffentlicht: 09.08.2022, 11:25</time>
-        <h3>Wie habe ich das geschafft?</h3>
-        <p> Mithilfe eines <em>djangogirlstutorials</em> in Begleitung des Unternehmens <strong>Thinkport</strong> Hier bin ich seit <time>Montag, 08.08.2022 10:00Uhr</time> und bis <time>Donnerstag, 11.08.2022 15:00Uhr</time> </p>
-        <P>  Interesse? Dann schon hier mal vorbei: <a href=https://tutorial.djangogirls.org/de/>link</a></P>
-        </article>
-</body>
-</html>
+        <header>
+            <h1><a href="/">Django Girls Blog</a></h1>
+        </header>
+        
+        {% for post in posts %}
+            <article>
+                <time>published: {{post.published_date}}</time>
+                <h2><a href="">{{post.title}}</a></h2>
+                <p>{{post.text|linebreaksbr}}</p>
+            </article>
+        {% endfor %}
 
+    </body>
+</html>
